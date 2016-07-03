@@ -5,9 +5,11 @@
   "main": "dist/incubus.js",
   "bin": "dist/incubus.js",
   "scripts": {
-    "start": "npm run build; node dist/incubus-run.js",
+    "start": "npm run command:run",
     "build": "babel src -d dist",
-    "test": "npm run build; mocha dist/spec/"
+    "test": "npm run build; mocha dist/spec/",
+    "command:run": "npm run build; node dist/incubus-run.js",
+    "command:rec": "npm run build; node dist/incubus-rec.js"
   },
   "keywords": [
     "nightmare"
@@ -17,11 +19,12 @@
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.10.1",
-    "babel-preset-stage-0": "^6.5.0",
     "babel-plugin-transform-async-to-generator": "^6.8.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
     "commander": "^2.9.0",
+    "inquirer": "^1.1.0",
     "mkdirp": "^0.5.1",
     "nightmare": "^2.5.1"
   },

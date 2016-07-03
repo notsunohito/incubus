@@ -1,18 +1,11 @@
 export default
-class Commands{
+class Commands {
     static findByName(name) {
-        let result;
-        [End, Goto, Type, Wait].some((ctor)=> {
-            if(ctor.name.toLowerCase() === name) {
-                result = ctor;
-                return true;
-            };
-            return false;
+        return [End, Goto, Type, Wait].find((ctor)=> {
+            return ctor.name.toLowerCase() === name;
         });
-        return result;
     }
 }
-
 
 export
 class Command {
