@@ -1,4 +1,4 @@
-import Commands from './commands';
+import Constructor from './constructor';
 
 export default
 class Executor {
@@ -7,12 +7,5 @@ class Executor {
     }
     async execute(nightmare) {
         return await Constructor.construct(this.command).execute(nightmare);
-    }
-}
-
-export 
-class Constructor {
-    static construct({name, args}) {
-        return new (Function.prototype.bind.call(Commands.findByName(name), null, args));
     }
 }

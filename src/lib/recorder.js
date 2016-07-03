@@ -1,5 +1,6 @@
-import {writeFile}    from './utils';
-import Executor, {Constructor} from './executor';
+import {writeFile} from './utils';
+import Constructor from './command/constructor';
+import Executor from './command/executor';
 import Runner from './runner';
 
 export default
@@ -10,8 +11,8 @@ class Recorder {
     }
 
     async save(filepath) {
-        const jsons = this.commands.map((command)=> Constructor.construct(command).toJSON());
-        return await writeFile(filepath, JSON.stringify(jsons));
+        const json = this.commands.map((command)=> Constructor.construct(command).toJSON());
+        return await writeFile(filepath, this.toJSONStr(json));
     }
 
     add(command) {
@@ -29,5 +30,13 @@ class Recorder {
         for(let command of this.commands) {
             await new Executor(command).execute(this.nightmare);
         }
+    }
+
+    toJSONStr(json) {
+        return JSON.stringify(json)
+            .replace(/^\[/, '[\n')
+            .replace(/\]$/, '\n]\n')
+            .replace(/,{/g, ',\n{')
+            .replace(/^{/mg, '  {');
     }
 }
