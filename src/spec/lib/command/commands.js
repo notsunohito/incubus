@@ -1,5 +1,5 @@
 import {expect}   from 'chai';
-import Commands from '../../lib/commands';
+import Commands from '../../../lib/command/commands';
 
 
 describe('Commands', ()=> {
