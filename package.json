@@ -6,7 +6,8 @@
   "bin": "dist/incubus.js",
   "scripts": {
     "start": "npm run command:run",
-    "build": "babel src -d dist",
+    "build": "npm run clean; babel src -d dist",
+    "clean": "rm -rf ./dist/",
     "test": "npm run build; mocha dist/spec/",
     "command:run": "npm run build; node dist/incubus-run.js",
     "command:rec": "npm run build; node dist/incubus-rec.js"
