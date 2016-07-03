@@ -11,8 +11,8 @@ class Recorder {
     }
 
     async save(filepath) {
-        const json = this.commands.map((command)=> Constructor.construct(command).toJSON());
-        return await writeFile(filepath, this.toJSONStr(json));
+        const jsonStr = this.toJSONStr();
+        return await writeFile(filepath, jsonStr);
     }
 
     add(command) {
@@ -32,7 +32,8 @@ class Recorder {
         }
     }
 
-    toJSONStr(json) {
+    toJSONStr() {
+        const json = this.commands.map((command)=> Constructor.construct(command).toJSON());
         return JSON.stringify(json)
             .replace(/^\[/, '[\n')
             .replace(/\]$/, '\n]\n')

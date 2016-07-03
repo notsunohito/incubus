@@ -1,5 +1,5 @@
 import Nightmare from 'nightmare';
-import Executor  from './executor';
+import Executor  from './command/executor';
 
 const options = {
     nightmare:{

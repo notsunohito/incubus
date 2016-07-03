@@ -14,8 +14,9 @@ class Command {
     }
 
     async execute(nightmare) {
+        throw new Error('Must be overridden');
     }
-
+    
     get name() {
         return this.constructor.name.toLowerCase();
     }
@@ -25,10 +26,6 @@ class Command {
             name: this.name,
             args: this.args
         };
-    }
-
-    toJSONStr() {
-        return JSON.stringify(this.toJSON());
     }
 }
 
