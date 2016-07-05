@@ -1,7 +1,7 @@
-import {writeFile} from './utils';
-import Constructor from './command/constructor';
-import Executor from './command/executor';
-import Runner from './runner';
+import {writeFile} from '../utils';
+import Constructor from '../command/constructor';
+import Executor    from '../command/executor';
+
 
 export default
 class Recorder {
