@@ -1,1 +1,1 @@
-import './lib/commands';
+import './lib/index';

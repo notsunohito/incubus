@@ -1,18 +1,11 @@
 export default
-class Commands{
+class Commands {
     static findByName(name) {
-        let result;
-        [End, Goto, Type, Wait].some((ctor)=> {
-            if(ctor.name.toLowerCase() === name) {
-                result = ctor;
-                return true;
-            };
-            return false;
+        return [End, Goto, Type, Wait].find((ctor)=> {
+            return ctor.name.toLowerCase() === name;
         });
-        return result;
     }
 }
-
 
 export
 class Command {
@@ -21,8 +14,9 @@ class Command {
     }
 
     async execute(nightmare) {
+        throw new Error('Must be overridden');
     }
-
+    
     get name() {
         return this.constructor.name.toLowerCase();
     }
@@ -32,10 +26,6 @@ class Command {
             name: this.name,
             args: this.args
         };
-    }
-
-    toJSONStr() {
-        return JSON.stringify(this.toJSON());
     }
 }
 
