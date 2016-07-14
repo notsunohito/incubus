@@ -8,6 +8,14 @@ program
     .option('--openDevTools', 'Open dev tools')
     .parse(process.argv);
 
+const options = {
+    nightmare:{
+        show: true,
+        openDevTools: false,
+        titleBarStyle: 'hidden',
+        webPreferences:{ partition: 'nopersist' }
+    }
+};
 
 const MockCommands = [
     {name: 'goto', args: ['http://www.yahoo.co.jp/']},
@@ -18,7 +26,7 @@ const MockCommands = [
 
 
 (async ()=> {
-    await new Runner(MockCommands).run();
+    await new Runner(options).run(MockCommands);
 })().catch((err)=> {
     console.error(err);
 });;
