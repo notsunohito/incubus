@@ -6,6 +6,7 @@ class Descriptor {
         case 'goto': return Goto;
         case 'type': return Type;
         case 'wait': return Wait;
+        case 'click': return Click;
         default: return null;
         }
     }
@@ -43,6 +44,16 @@ const Wait = {
     hasArgs: true,
     args: {
         required: ['ms'],
+        isOverload: false,
+        hasOptions: false
+    }
+};
+
+const Click = {
+    description: '.click(selector)',
+    hasArgs: true,
+    args: {
+        required: ['selector'],
         isOverload: false,
         hasOptions: false
     }

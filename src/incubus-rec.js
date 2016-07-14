@@ -13,7 +13,7 @@ program
 const options = {
     nightmare:{
         show: true,
-        openDevTools: false,
+        openDevTools: true,
         titleBarStyle: 'hidden',
         webPreferences:{ partition: 'nopersist' }
     }

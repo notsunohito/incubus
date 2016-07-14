@@ -1,7 +1,7 @@
 export default
 class Commands {
     static findByName(name) {
-        return [End, Goto, Type, Wait].find((ctor)=> {
+        return [End, Goto, Type, Click, Wait].find((ctor)=> {
             return ctor.name.toLowerCase() === name;
         });
     }
@@ -70,9 +70,9 @@ class Refresh extends Command {
 
 export
 class Click extends Command {
-    constructor(selector) {
-        super();
-        this.selector = selector;
+    constructor(args) {
+        super(args);
+        this.selector = this.args[0];
     }
     async execute(nightmare) {
         return await nightmare.click(this.selector);

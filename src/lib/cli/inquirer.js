@@ -59,7 +59,7 @@ const Questions = {
         type: 'list',
         name: 'name',
         message: 'Choose command',
-        choices: ['goto', 'type', 'wait', 'end', 'incubus:save']
+        choices: ['goto', 'type', 'wait', 'click', 'end', 'incubus:save']
     },
     save: {
         type: 'choice',

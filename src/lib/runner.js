@@ -12,6 +12,7 @@ class Runner {
         for(let command of commands) {
             await new Executor(command).execute(this.nightmare);
         }
+        return this;
     }
 
 }
